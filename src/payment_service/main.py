@@ -12,6 +12,10 @@ def fail_payment(order_id: str, reason: str) -> None:
     logger.error("payment_failed", order_id=order_id, reason=reason)
 
 
-if __name__ == "__main__":
+def main() -> None:
     process_payment("order-001")
     fail_payment("order-002", "insufficient_funds")
+
+
+if __name__ == "__main__":
+    main()
