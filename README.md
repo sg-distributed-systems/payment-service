@@ -19,3 +19,17 @@ Records a payment failure with the associated reason.
 
 **Logs:**
 - `payment_failed` — Logged when a payment fails, includes the order ID and failure reason
+
+## HTTP Interface
+
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/healthz` | GET | Liveness probe |
+| `/readyz` | GET | Readiness probe |
+| `/payments/process` | POST | Processes a payment |
+
+### Running the service
+
+```bash
+uvicorn src.payment_service.app:app --host 0.0.0.0 --port 8004
+```
