@@ -68,3 +68,17 @@ def refund_payment(transaction_id: str, amount: Decimal, reason: str) -> dict:
     refund_id = uuid4()
     logger.info("refund_completed", refund_id=str(refund_id))
     return {"refund_id": refund_id, "status": "refunded", "processed_at": datetime.utcnow()}
+
+
+def void_authorization(transaction_id: str, reason: str) -> dict:
+    logger.info("authorization_void_requested", transaction_id=transaction_id, reason=reason)
+
+    if not transaction_id:
+        raise ValidationError("transaction_id_required")
+
+    logger.info("authorization_voided", transaction_id=transaction_id)
+    return {
+        "transaction_id": transaction_id,
+        "status": "voided",
+        "voided_at": datetime.utcnow(),
+    }
