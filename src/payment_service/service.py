@@ -13,7 +13,7 @@ from core_logger import get_logger
 
 from .errors import PaymentError, ValidationError
 
-logger = get_logger("payment-service")
+logger = get_logger("payment-service", tier="compliance")
 
 SUPPORTED_CURRENCIES = {"USD", "EUR", "GBP", "JPY"}
 SUPPORTED_METHODS = {"credit_card", "debit_card", "bank_transfer", "paypal"}
