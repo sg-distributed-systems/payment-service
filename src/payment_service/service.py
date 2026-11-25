@@ -9,11 +9,11 @@ from datetime import datetime
 from decimal import Decimal
 from uuid import uuid4
 
-from core_logger import get_logger
+from core_logger import Tier, get_logger
 
 from .errors import PaymentError, ValidationError
 
-logger = get_logger("payment-service")
+logger = get_logger("payment-service", tier=Tier.COMPLIANCE)
 
 SUPPORTED_CURRENCIES = {"USD", "EUR", "GBP", "JPY"}
 SUPPORTED_METHODS = {"credit_card", "debit_card", "bank_transfer", "paypal"}
